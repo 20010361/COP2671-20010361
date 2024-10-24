@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_TagString
-      value: Plane
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -176,7 +176,7 @@ PrefabInstance:
       addedObject: {fileID: -2916723198716833389}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9099854751644048700}
+      addedObject: {fileID: -8177241981473523384}
   m_SourcePrefab: {fileID: 100100000, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
 --- !u!1 &4032861485192895681 stripped
 GameObject:
@@ -237,8 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  travelDirection: {x: 0, y: 0, z: 1}
---- !u!114 &9099854751644048700
+--- !u!114 &-8177241981473523384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4032861485192895681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836b643c4393edd4f9e89e21b40a5971, type: 3}
+  m_Script: {fileID: 11500000, guid: 9255baedd008bf048894084d5a136d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &4376454902113011323 stripped
