@@ -6,16 +6,19 @@ using UnityEngine.UIElements;
 public class ShootBullets : MonoBehaviour
 {
     private GameObject parentObject; // Object the script is the child of
-    private Vector3 gunPosition; // The position of the gun for the bullets to spawn from
-    private Quaternion planeRotation; // The rotation of the plane for the bullets to face the same direction as the plane
+    private bool readyToFire = true; // Determines whether the gun can fire
+    private AudioSource mainGunAudio; // The component that plays the gun shot sounds
 
     public GameObject bulletPrefab; // Bullet that will be spawned
-    
+    public float rateOfFire = 2; // The rate at which the bullets are shot
+    public AudioClip gunShotSound; // The sound of the gun firing
+
 
     // Start is called before the first frame update
     void Start()
     {
-        parentObject = this.transform.root.gameObject; // Gets the object the script is child of
+        parentObject = this.gameObject; // Gets the object the script is child of
+        mainGunAudio = GetComponent<AudioSource>(); // Gets the audio source component on the parent object
     }
 
     // Update is called once per frame
@@ -25,10 +28,27 @@ public class ShootBullets : MonoBehaviour
     }
 
     // Shoots the plane's main gun
-    public void FireGun()
+    public IEnumerator FireGun()
     {
-        gunPosition = parentObject.transform.Find("BulletSpawnPosition").position; // Gets the position for bullet to spawn from
-        planeRotation = parentObject.transform.rotation; // Gets the direction for bullet to face
-        Instantiate(bulletPrefab, gunPosition, planeRotation); // Spawns bullet
+        // Executes if the gun is ready to fire
+        if(readyToFire == true)
+        {
+            readyToFire = false; // Disables the gun
+            Vector3 gunPosition = parentObject.transform.Find("BulletSpawnPosition").position; // Gets the position for bullet to spawn from
+            Quaternion planeRotation = parentObject.transform.rotation; // Gets the direction for bullet to face
+            Instantiate(bulletPrefab, gunPosition, planeRotation); // Spawns bullet
+            mainGunAudio.PlayOneShot(gunShotSound, 1.0f); // Plays the gun shot when bullet is spawned in
+
+            StartCoroutine(FireRateHandler()); // Starts a coroutine to handle time between shots
+            yield return null; // Ends the coroutine
+        }      
+    }
+
+    // Handles the time between shots
+    IEnumerator FireRateHandler()
+    {
+        float timeBeforeNextShot = 1 / rateOfFire; // Value for the time between shots
+        yield return new WaitForSeconds(timeBeforeNextShot); // Begins the timer
+        readyToFire = true; // Enables the gun
     }
 }

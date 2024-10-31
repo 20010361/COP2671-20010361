@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
-{
-    private float maxHealth = 100; // The maximum health the object can have
+{   
     private float currentHealth; // The object's current health
     private bool bIsAlive = true; // Variable for whether the object is dead or alive
+
+    public float maxHealth = 100; // The maximum health the object can have
 
     // Start is called before the first frame update
     void Start()

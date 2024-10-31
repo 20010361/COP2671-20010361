@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8171835960687131182}
   - component: {fileID: -7049365976735599737}
-  - component: {fileID: -3160225819993076563}
+  - component: {fileID: 9026524281607307502}
   - component: {fileID: -1036014858058789229}
   - component: {fileID: 8980744102889926156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,9 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052e5d717f0297e48bf1d44e2f3b4d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  travelDirection: {x: 0, y: 0, z: 1}
---- !u!114 &-3160225819993076563
+  speed: 60
+--- !u!114 &9026524281607307502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,9 +58,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 756935502449196855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3da899cba7cf14faa57f104b166f6f, type: 3}
+  m_Script: {fileID: 11500000, guid: b8e604ce2e2aaca44ab38fb1ff3913dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 5
 --- !u!65 &-1036014858058789229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7be83baa9ec458c42b696fdb4d700cda, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4815509259836081192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MissileBay1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4065392140851203244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MissileBay2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351020006766632685}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,51 +143,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8451401705848963435, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -8021672118839320176, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
     - target: {fileID: -5999088050115811048, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -5594753515997379004, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4979831070953354330, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -2896277297150146416, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -2793797512646358997, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -2693026402335296447, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
     - target: {fileID: -2522862906714434612, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -2252866382764432006, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
+    - target: {fileID: -1354242181665230414, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
+    - target: {fileID: 902841617090426301, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
     - target: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Name
       value: TestBird
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_TagString
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 2958182116928736905, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
+    - target: {fileID: 3296902295314221796, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
     - target: {fileID: 4524115685319928406, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5530016991590106488, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
+    - target: {fileID: 6779889095702297691, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
     - target: {fileID: 9133510751985404866, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -208,9 +244,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       insertIndex: -1
       addedObject: {fileID: 161188837580712430}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -3114140806127852650}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3596379714661748855}
@@ -242,6 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 756935502449196855, guid: 0f98091977668da43b2d20802fe2e5ce, type: 3}
+  rateOfFire: 2
+  gunShotSound: {fileID: 0}
 --- !u!114 &161188837580712430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,18 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 3310285835569820189, guid: b3068dfbc18c8514a95c4f0d1e463527, type: 3}
---- !u!114 &-3114140806127852650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4032861485192895681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3da899cba7cf14faa57f104b166f6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  launchRate: 1
+  missileLaunchSound: {fileID: 0}
 --- !u!65 &3596379714661748855
 BoxCollider:
   m_ObjectHideFlags: 0

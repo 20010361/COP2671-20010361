@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8878442617344348562}
   - component: {fileID: 5858851639842442673}
-  - component: {fileID: 4844329524815172106}
+  - component: {fileID: -4087817134798094005}
   - component: {fileID: -7379724864290108967}
   - component: {fileID: 5333513149331221325}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Missile
-  m_TagString: Untagged
+  m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,9 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052e5d717f0297e48bf1d44e2f3b4d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  travelDirection: {x: 0, y: 0, z: 1}
---- !u!114 &4844329524815172106
+  speed: 50
+--- !u!114 &-4087817134798094005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,9 +58,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3310285835569820189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3da899cba7cf14faa57f104b166f6f, type: 3}
+  m_Script: {fileID: 11500000, guid: b1b6fee4fd092474e9724688e904dfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missileDamage: 50
 --- !u!65 &-7379724864290108967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -177,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7be83baa9ec458c42b696fdb4d700cda, type: 3}
       propertyPath: m_Name
       value: Missile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7be83baa9ec458c42b696fdb4d700cda, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

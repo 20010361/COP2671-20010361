@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public delegate void EnemySpawnerDelegate(); // Delegate template for spawning enemies
+    public static event EnemySpawnerDelegate enemySpawnerDelegate; // Delegate for spawning enemies
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnEnemyWave(); // Spawns an enemy wave
     }
 
     // Update is called once per frame
@@ -16,10 +19,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // Applys damage to a game object
-    public void ApplyDamageToVictim(float damage, GameObject victim)
+    // Spawns a wave of enemies
+    void SpawnEnemyWave()
     {
-        HealthSystem healthSystem = victim.GetComponent<HealthSystem>(); // Gets the health component of victim object
-        healthSystem.ApplyDamage(damage); // Applies damage to object health
+        enemySpawnerDelegate(); // Sends a call to all observers subscribed to this delegate
     }
 }
