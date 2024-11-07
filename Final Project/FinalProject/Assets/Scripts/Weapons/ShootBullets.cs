@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class ShootBullets : MonoBehaviour
 {
-    private GameObject parentObject; // Object the script is the child of
     private bool readyToFire = true; // Determines whether the gun can fire
     private AudioSource mainGunAudio; // The component that plays the gun shot sounds
 
@@ -17,7 +16,6 @@ public class ShootBullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parentObject = this.gameObject; // Gets the object the script is child of
         mainGunAudio = GetComponent<AudioSource>(); // Gets the audio source component on the parent object
     }
 
@@ -34,8 +32,8 @@ public class ShootBullets : MonoBehaviour
         if(readyToFire == true)
         {
             readyToFire = false; // Disables the gun
-            Vector3 gunPosition = parentObject.transform.Find("BulletSpawnPosition").position; // Gets the position for bullet to spawn from
-            Quaternion planeRotation = parentObject.transform.rotation; // Gets the direction for bullet to face
+            Vector3 gunPosition = transform.Find("BulletSpawnPosition").position; // Gets the position for bullet to spawn from
+            Quaternion planeRotation = transform.rotation; // Gets the direction for bullet to face
             Instantiate(bulletPrefab, gunPosition, planeRotation); // Spawns bullet
             mainGunAudio.PlayOneShot(gunShotSound, 1.0f); // Plays the gun shot when bullet is spawned in
 

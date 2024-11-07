@@ -21,6 +21,19 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+    }
+
+    // Moves the object
+    void Move()
+    {
         transform.Translate(travelDirection * Time.deltaTime * speed); // Makes object travel forward
+    }
+
+    // Moves the object backward
+    public void MoveBackward()
+    {
+        Vector3 reverseDirection = new Vector3(0, 0, -30);
+        transform.Translate((reverseDirection * Time.deltaTime * speed)); // Makes object travel backward
     }
 }

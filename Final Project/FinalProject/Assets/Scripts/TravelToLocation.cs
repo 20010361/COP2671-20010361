@@ -7,6 +7,7 @@ public class TravelToLocation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MakeInvincible(); // Makes enemy invincible while traveling to air space
         GoToLocation(); // Travels to the air space
     }
 
@@ -26,6 +27,24 @@ public class TravelToLocation : MonoBehaviour
         transform.rotation = destination; // Rotates the object
     }
 
+    // Makes the enemy unable to take damage
+    void MakeInvincible()
+    {
+        HealthSystem healthSystem = gameObject.GetComponent<HealthSystem>(); // Gets enemy health system
+        healthSystem.bIsInvincible = true; // Makes enemy invincible
+        PlaneCollision planeCollision = gameObject.GetComponent<PlaneCollision>(); // Gets parent object plane collision
+        planeCollision.bCanCollide = false; // Makes the enemy unable to collide
+    }
+
+    // Makes the enemy able to take damage
+    void MakeVincible()
+    {
+        HealthSystem healthSystem = gameObject.GetComponent<HealthSystem>(); // Gets enemy health system
+        healthSystem.bIsInvincible = false; // Makes enemy vincible
+        PlaneCollision planeCollision = gameObject.GetComponent<PlaneCollision>(); // Gets parent object plane collision
+        planeCollision.bCanCollide = true; // Makes the enemy able to collide
+    }
+
     // Detects if the enemy has collided with air space
     private void OnTriggerEnter(Collider other)
     {
@@ -33,6 +52,7 @@ public class TravelToLocation : MonoBehaviour
         if(other.gameObject.CompareTag("AreaOfOperation"))
         {
             gameObject.AddComponent<AIController>(); // Adds the ai component
+            MakeVincible(); // Makes the enemy vincible again once it reached its destination
             Destroy(this); // Deletes this component
         }
     }

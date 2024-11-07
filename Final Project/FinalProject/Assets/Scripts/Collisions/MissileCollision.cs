@@ -22,7 +22,7 @@ public class MissileCollision : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         // Executes if missile collided with a plane
-        if (other.CompareTag("Plane"))
+        if (other.CompareTag("Plane") || other.CompareTag("Player"))
         {
             HealthSystem healthSystem = other.GetComponent<HealthSystem>(); // Gets the health component of victim object
             healthSystem.ApplyDamage(missileDamage); // Applies damage to the other plane

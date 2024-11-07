@@ -7,10 +7,14 @@ public class AIController : MonoBehaviour
 {
     private float topZ = 10; // The max position at the top an object can be at
     private float rightX = 36; // The max position to the right an object can be at
+    private ShootBullets mainGun; // Object to shoot bullets
+    private FireMissiles missileBay; // Object to fire missiles
 
     // Start is called before the first frame update
     void Start()
     {
+        mainGun = GetComponent<ShootBullets>(); // Gets the component for firing the main gun
+        missileBay = GetComponent<FireMissiles>(); // Gets the component for firing the missiles
         StartCoroutine(AIBehavior()); // Starts the ai behavior
     }
 
@@ -62,6 +66,25 @@ public class AIController : MonoBehaviour
         }
     }
 
+    // Makes enemy attack player
+    void Attack()
+    {
+        int choiceInWeapon = Random.Range(1, 3); // Determines what weapon the enemy uses
+        
+        // For the main gun
+        if(choiceInWeapon == 1)
+        {
+            StartCoroutine(mainGun.FireGun()); // Fires the main gun
+        }
+        // For the missile bay
+        if(choiceInWeapon == 2)
+        {
+            StartCoroutine(missileBay.LaunchMissile()); // Launches a missile
+        }
+
+        
+    }
+
     // Handles the enemy AI
     IEnumerator AIBehavior()
     {
@@ -75,9 +98,16 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                RotateToFacePlayer(); // Ai faces the player
+                GameObject player; // The player in the level
+
+                // Checks if the player exists
+                if (player = GameObject.FindGameObjectWithTag("Player"))
+                {
+                    RotateToFacePlayer(); // Ai faces the player
+                    Attack(); // Attacks the player
+                }                
             }            
-            yield return new WaitForSeconds(1);           
+            yield return new WaitForSeconds(1); // Waits before continueing  the loop         
         }
     }
 }
