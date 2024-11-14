@@ -5,44 +5,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int currentRound; // The round the player is playing
     private int enemiesRemaining; // The amount of enemies left in level
-
-    public TextMeshProUGUI roundText; // UI text to show the current round being player
+    private RoundManager roundManager; // The level's round manager
+  
+    public TextMeshProUGUI healthText; // UI text to show player current health
     public delegate void EnemySpawnerDelegate(); // Delegate template for spawning enemies
     public static event EnemySpawnerDelegate enemySpawnerDelegate; // Delegate for spawning enemies    
 
 
+    private void OnEnable()
+    {
+        HealthSystem.playerHealthDelegate += DisplayPlayerHealth; // Makes the game manager listen for when the player takes damage
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        currentRound = 1; // Starts the game at round 1
-        StartRound(); // Begins a round
+        roundManager = gameObject.GetComponent<RoundManager>(); // Gets the level's round manager
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckIfAllEnemiesDead();
-    }
-
-    // Begins the current round
-    void StartRound()
-    {
-        roundText.text = "Round: " + currentRound; // Sets the text to the value of the current round
-        SpawnEnemyWave(); // Spawns a wave of enemies
-        GetEnemiesInLevel(); // Gets the amount of enemies in the level
-    }
-
-    // Increments the current round to set it to next round
-    void UpdateRound()
-    {
-        currentRound++; // Increments the current round
-        StartRound(); // Starts the next round
+        
     }
 
     // Gets the enemies that have been spawned in at the start of a round
-    void GetEnemiesInLevel()
+    public void GetEnemiesInLevel()
     {
         enemiesRemaining = GameObject.FindGameObjectsWithTag("Plane").Length; // Finds the amount of enemies in level
     }
@@ -54,18 +43,24 @@ public class GameManager : MonoBehaviour
     }
 
     // Checks if all the enemies are dead
-    void CheckIfAllEnemiesDead()
+    public void CheckIfAllEnemiesDead()
     {
         // If all the enemies are dead
         if (enemiesRemaining < 1)
         {
-            UpdateRound();
+            roundManager.UpdateRound(); // Initiates the next round after all the enemies are dead
         }
     }
 
     // Spawns a wave of enemies
-    void SpawnEnemyWave()
+    public void SpawnEnemyWave()
     {
         enemySpawnerDelegate(); // Sends a call to all observers subscribed to this delegate
+    }
+
+    // Displays the player's current health
+    void DisplayPlayerHealth(float health)
+    {
+        healthText.text = "Health: " + health; // Displays player health to UI
     }
 }

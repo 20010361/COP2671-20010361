@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d7c36e0cd3ad0489743c08fd524e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemiesArray:
-  - {fileID: 4032861485192895681, guid: 7c4b3f5235dd3584e879086274ec077c, type: 3}
+  stage1EnemiesArray:
+  - {fileID: 4032861485192895681, guid: 308b80f935403a340a4c07ca16558fc5, type: 3}
+  stage2EnemiesArray:
+  - {fileID: 4032861485192895681, guid: 07cf7f996fb3ee0489d9df50cd5af67c, type: 3}
+  stage3EnemiesArray:
+  - {fileID: 4032861485192895681, guid: 4cc937f7a844a4d418ac6b63a4196b4d, type: 3}
+  roundManager: {fileID: 0}

@@ -10,12 +10,20 @@ public class HealthSystem : MonoBehaviour
 
     public float maxHealth = 100; // The maximum health the object can have
     public bool bIsInvincible = false; // Determines whether the object can take damage
+    public delegate void PlayerHealthTemplate(float health); // Template for player health delegate
+    public static event PlayerHealthTemplate playerHealthDelegate; // Delegate to tell listener that player is being damaged
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         currentHealth = maxHealth; // Sets current health to max health
+
+        if(gameObject.CompareTag("Player"))
+        {
+            playerHealthDelegate(currentHealth);
+        }      
     }
 
     // Update is called once per frame
@@ -32,9 +40,19 @@ public class HealthSystem : MonoBehaviour
         {
             currentHealth -= damage; // Subtracts the damage from current health
 
+            // Exectutes if the parent object is the player
+            if(gameObject.CompareTag("Player"))
+            {
+                playerHealthDelegate(currentHealth); // Tells all listeners the player's current health
+            }
+
             // If the object loses all of its health
             if(currentHealth <= 0)
             {
+                if(gameObject.CompareTag("Player"))
+                {
+                    playerHealthDelegate(0); // Tells all listens the player's health is zero when dead so it looks nice
+                }               
                 Die(); // Makes the object die
             }          
         }

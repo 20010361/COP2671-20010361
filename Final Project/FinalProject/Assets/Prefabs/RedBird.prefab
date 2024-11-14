@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Name
-      value: TestBird
+      value: RedBird
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 6779889095702297691, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 80a5258c5cf9a574499638f23a16e763, type: 2}
+      objectReference: {fileID: 2100000, guid: 7e85fcf46e4a8dc4b96ab990ffa6fc3e, type: 2}
     - target: {fileID: 9133510751985404866, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -235,7 +235,7 @@ PrefabInstance:
       addedObject: {fileID: -5175392006637527908}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4125576961820521378}
+      addedObject: {fileID: -7064563730134208267}
   m_SourcePrefab: {fileID: 100100000, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
 --- !u!1 &4032861485192895681 stripped
 GameObject:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5609cc00f7746164ca8605892503f713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4125576961820521378
+--- !u!114 &-7064563730134208267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e8618b6e50d0f4198e853fee68b939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePointsCarried: 5
+  scorePointsCarried: 10
 --- !u!4 &4376454902113011323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4065ac2027992df4891d71204eb50a57, type: 3}
