@@ -11,7 +11,13 @@ public class PlayerController : MonoBehaviour
     private FireMissiles missileBay; // Object for firing the missiles
 
     public LayerMask layersToHit; // Layer object that raycast is meant to collide with
+    public GameObject pauseMenu; // Object for pausing and unpausing the game
 
+
+    private void OnEnable()
+    {
+        Time.timeScale = 1; // Resumes game time
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         FlyPlane();
         UseWeapons();
+        PauseGame();
     }
 
     // Moves the player to where the mouse cursor is on screen
@@ -56,6 +63,23 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(missileBay.LaunchMissile()); // Fires the missiles
+        }
+    }
+
+    // Pauses the game
+    void PauseGame()
+    {
+        // Executes when key is pressed and game is unpaused
+        if(Input.GetKeyDown(KeyCode.Tab) && pauseMenu.activeSelf == false)
+        {
+            pauseMenu.SetActive(true); // Opens the pause menu
+            Time.timeScale = 0; // Stops game time
+        }
+        // Executes when the key is pressed and game is already paused
+        else if(Input.GetKeyDown(KeyCode.Tab) && pauseMenu.activeSelf == true)
+        {
+            pauseMenu.SetActive(false); // Closes the pause menu
+            Time.timeScale = 1; // Resumes game time
         }
     }
 }

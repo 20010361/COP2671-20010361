@@ -9,6 +9,9 @@ public class RoundManager : MonoBehaviour
 
     public int currentRound; // The round the player is playing
     public TextMeshProUGUI roundText; // UI text to show the current round being player
+    public delegate void PowerUpSpawner(); // Template for spawning and destroying powerups
+    public static event PowerUpSpawner powerUpSpawnerDelegate; // For spawning powerups
+    public static event PowerUpSpawner powerUpDeleterDelegate; // For destroying powerups
 
 
     // Start is called before the first frame update
@@ -31,12 +34,14 @@ public class RoundManager : MonoBehaviour
         roundText.text = "Round: " + currentRound; // Sets the text to the value of the current round
         gameManager.SpawnEnemyWave(); // Spawns a wave of enemies
         gameManager.GetEnemiesInLevel(); // Gets the amount of enemies in the level
+        powerUpSpawnerDelegate(); // Spawns power ups
     }
 
     // Increments the current round to set it to next round
     public void UpdateRound()
     {
         currentRound++; // Increments the current round
+        powerUpDeleterDelegate(); // Destroys remaing powerups before next round
         StartRound(); // Starts the next round
     }
 }

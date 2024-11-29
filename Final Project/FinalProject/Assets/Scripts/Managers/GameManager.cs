@@ -63,4 +63,9 @@ public class GameManager : MonoBehaviour
     {
         healthText.text = "Health: " + health; // Displays player health to UI
     }
+
+    private void OnDisable()
+    {
+        HealthSystem.playerHealthDelegate -= DisplayPlayerHealth; // Unsubscribes the game manager from the player health delegate
+    }
 }

@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     private GameObject[] enemiesArray; // The collection of enemy types that can be spawned in
+    private RoundManager roundManager; // The current round manager in the game world
 
     public GameObject[] stage1EnemiesArray; // The array of enemies to be spawned in the early rounds
     public GameObject[] stage2EnemiesArray; // The array of enemies to be spawned in the mid rounds
     public GameObject[] stage3EnemiesArray; // The array of enemies to be spawned in the later rounds
-    public RoundManager roundManager; // The current round manager in the game world
+    
 
 
     // When the object is enabled
@@ -50,5 +51,11 @@ public class EnemySpawner : MonoBehaviour
             enemiesArray = stage1EnemiesArray;
         }
         Instantiate(enemiesArray[0], this.gameObject.transform.position, this.gameObject.transform.rotation); // Spawned an enemy
+    }
+
+    // When the object is disabled
+    private void OnDisable()
+    {
+        GameManager.enemySpawnerDelegate -= SpawnEnemy; // Unsubscribes from the game manager's delegate for spawning enemies
     }
 }

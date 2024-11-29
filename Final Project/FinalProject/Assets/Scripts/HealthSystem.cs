@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
     public bool bIsInvincible = false; // Determines whether the object can take damage
     public delegate void PlayerHealthTemplate(float health); // Template for player health delegate
     public static event PlayerHealthTemplate playerHealthDelegate; // Delegate to tell listener that player is being damaged
+    public GameObject deathMenu;
 
 
     // Start is called before the first frame update
@@ -68,7 +69,20 @@ public class HealthSystem : MonoBehaviour
         {
             gameManager.UpdateEnemyCount();
         }
+        // If the parent object is the player
+        else if(gameObject.CompareTag("Player"))
+        {
+            deathMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
 
         Destroy(gameObject); // Destroys the object
+    }
+
+    // Restores current health to full
+    public void RestoreHealth()
+    {
+        currentHealth = maxHealth; // Sets current health back to back
+        playerHealthDelegate(currentHealth); // Displays the current health
     }
 }
