@@ -12,19 +12,13 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         currentScore = 0; // Score starts at zero
-        scoreText.text = "Score: " + currentScore;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        scoreText.text = "Score: " + currentScore; // Displays current score
     }
 
     // Increases the player's score by the given parameter
     public void IncreaseScore(int scorePoints)
     {
         currentScore += scorePoints; // Adds the points to the player'score
-        scoreText.text = "Score: " + currentScore;
+        scoreText.text = "Score: " + currentScore; // Displays current score
     }
 }

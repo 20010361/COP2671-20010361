@@ -6,6 +6,7 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {    
     private GameManager gameManager; // The levels current game manager
+    private TimerManager timerManager; // The game's timer
 
     public int currentRound; // The round the player is playing
     public TextMeshProUGUI roundText; // UI text to show the current round being player
@@ -19,6 +20,7 @@ public class RoundManager : MonoBehaviour
     {
         currentRound = 1; // Starts the game at round 1
         gameManager = gameObject.GetComponent<GameManager>(); // Gets the level's game manager
+        timerManager = gameObject.GetComponent<TimerManager>(); // Gets the game's timer
         StartRound(); // Begins the first round
     }
 
@@ -34,6 +36,7 @@ public class RoundManager : MonoBehaviour
         roundText.text = "Round: " + currentRound; // Sets the text to the value of the current round
         gameManager.SpawnEnemyWave(); // Spawns a wave of enemies
         gameManager.GetEnemiesInLevel(); // Gets the amount of enemies in the level
+        timerManager.ResetTime(); // Resets the timer every round
         powerUpSpawnerDelegate(); // Spawns power ups
     }
 
@@ -41,7 +44,10 @@ public class RoundManager : MonoBehaviour
     public void UpdateRound()
     {
         currentRound++; // Increments the current round
-        powerUpDeleterDelegate(); // Destroys remaing powerups before next round
+        if(GameObject.FindGameObjectWithTag("PowerUp"))
+        {
+            powerUpDeleterDelegate(); // Destroys remaing powerups before next round
+        }       
         StartRound(); // Starts the next round
     }
 }

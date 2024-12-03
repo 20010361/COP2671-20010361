@@ -18,8 +18,12 @@ public class PowerUp : MonoBehaviour
         // If the collision is with the player
         if (other.gameObject.CompareTag("Player"))
         {
-            powerUpEffect.EnablePower(); // Enables the powerup effect
-            Destroy(gameObject); // Destroys the powerup
+            // Checks if player inventory is empty before adding the powerup to it
+            if(other.gameObject.GetComponent<Inventory>().bIsEmpty == true)
+            {
+                other.gameObject.GetComponent<Inventory>().AddToInventory(this); // Adds the powerup to the player's inventory
+                Destroy(gameObject); // Destroys the powerup
+            }           
         }
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Missile
   - GameManager
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Projectile
   - Plane
   - PowerUp
-  - 
+  - DeliveryPoint
   - 
   - 
   - 

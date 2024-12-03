@@ -25,12 +25,6 @@ public class EnemySpawner : MonoBehaviour
         roundManager = GameObject.Find("GameManager").GetComponent<RoundManager>(); // Gets the current round manager
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Spawned an enemy
     void SpawnEnemy()
     {
@@ -42,13 +36,9 @@ public class EnemySpawner : MonoBehaviour
         {
             enemiesArray = stage2EnemiesArray;
         }
-        else if(roundManager.currentRound <= 15 && roundManager.currentRound > 10)
+        else if(roundManager.currentRound > 10)
         {
             enemiesArray = stage3EnemiesArray;
-        }
-        else
-        {
-            enemiesArray = stage1EnemiesArray;
         }
         Instantiate(enemiesArray[0], this.gameObject.transform.position, this.gameObject.transform.rotation); // Spawned an enemy
     }

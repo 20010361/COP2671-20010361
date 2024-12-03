@@ -24,12 +24,6 @@ public class GameManager : MonoBehaviour
         roundManager = gameObject.GetComponent<RoundManager>(); // Gets the level's round manager
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Gets the enemies that have been spawned in at the start of a round
     public void GetEnemiesInLevel()
     {

@@ -19,12 +19,6 @@ public class AIController : MonoBehaviour
         StartCoroutine(AIBehavior()); // Starts the ai behavior
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Rotates the object
     void RotateToDirection()
     {

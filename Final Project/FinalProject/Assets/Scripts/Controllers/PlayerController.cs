@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask layersToHit; // Layer object that raycast is meant to collide with
     public GameObject pauseMenu; // Object for pausing and unpausing the game
+    public ShowStats showStats;
 
 
     private void OnEnable()
@@ -44,10 +45,15 @@ public class PlayerController : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit Hitdata, 100, layersToHit))
         {
             Vector3 worldPosition = Hitdata.point; // Sets the world postion to the position hit by the cast
-            Vector3 direction = (worldPosition - transform.position); // Calculates the direction the player need to travel to get to the world position
+            Vector3 direction = (worldPosition - transform.position) + new Vector3(0,10,0); // Calculates the direction the player need to travel to get to the world position
             Vector3 substracter = new Vector3(0, direction.y, 0); // This variable keeps the player rotating only on the y axis by subtracting it from the direction, somehow...
-            Quaternion destination = Quaternion.LookRotation(direction - substracter); // Gets the rotation values needed to get player to target destination
-            transform.rotation = destination; // Rotates the player toward the target destination
+
+            // Gets rid of that debug message about the zero look rotation
+            if(direction - substracter != Vector3.zero)
+            {
+                Quaternion destination = Quaternion.LookRotation(direction - substracter); // Gets the rotation values needed to get player to target destination               
+                transform.rotation = Quaternion.Lerp(transform.rotation, destination, Time.deltaTime * 2.5f); // Rotates the player toward the target destination
+            }    
         }
     }
 
@@ -73,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab) && pauseMenu.activeSelf == false)
         {
             pauseMenu.SetActive(true); // Opens the pause menu
+            showStats.Show(); // Shows the stats in the pause menu
             Time.timeScale = 0; // Stops game time
         }
         // Executes when the key is pressed and game is already paused

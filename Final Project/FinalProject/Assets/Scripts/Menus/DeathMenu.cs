@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour
 {
-    public GameObject deathMenu;
+    public GameObject deathMenu; // Reference to itself
+    public ShowStats showStats; // Reference to the showstats script attached to parent object
+
+
+    // Executes upon death menu being enabled
+    private void OnEnable()
+    {
+        showStats.Show(); // Shows the stats upon death
+    }
 
     // Restarts the current level
     public void RestartLevel()

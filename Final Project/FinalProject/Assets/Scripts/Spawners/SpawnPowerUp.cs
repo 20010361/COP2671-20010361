@@ -12,22 +12,16 @@ public class SpawnPowerUp : MonoBehaviour
         RoundManager.powerUpSpawnerDelegate += SpawnInPowerUp; // Listens for when the round is starting so it can spawn powerups
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Spawns in a power up
     public void SpawnInPowerUp()
     {
-        Instantiate(powerUps[0], this.gameObject.transform.position, Quaternion.LookRotation(Vector3.up));
+        // Determines whether a powerup spawns
+        int spawnDecision = Random.Range(0, 4); // The odds of a powerup spawning
+        if (spawnDecision == 1)
+        {
+            int powerUpToSpawn = Random.Range(0, powerUps.Length);
+            Instantiate(powerUps[powerUpToSpawn], this.gameObject.transform.position, Quaternion.LookRotation(Vector3.up));
+        }      
     }
 
     private void OnDisable()

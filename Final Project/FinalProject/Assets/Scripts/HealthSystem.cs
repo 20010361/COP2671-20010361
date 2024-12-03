@@ -12,7 +12,7 @@ public class HealthSystem : MonoBehaviour
     public bool bIsInvincible = false; // Determines whether the object can take damage
     public delegate void PlayerHealthTemplate(float health); // Template for player health delegate
     public static event PlayerHealthTemplate playerHealthDelegate; // Delegate to tell listener that player is being damaged
-    public GameObject deathMenu;
+    public GameObject deathMenu; // The death menu that will be displayed upon death
 
 
     // Start is called before the first frame update
@@ -21,16 +21,11 @@ public class HealthSystem : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         currentHealth = maxHealth; // Sets current health to max health
 
+        // Executes only if the parent is the player
         if(gameObject.CompareTag("Player"))
         {
-            playerHealthDelegate(currentHealth);
+            playerHealthDelegate(currentHealth); // Displays player health when game starts
         }      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Subtracts from current health
@@ -67,13 +62,13 @@ public class HealthSystem : MonoBehaviour
         // If the parent object is an enemy
         if(gameObject.CompareTag("Plane"))
         {
-            gameManager.UpdateEnemyCount();
+            gameManager.UpdateEnemyCount(); // Subtracts from the count of enemies currently in the level
         }
         // If the parent object is the player
         else if(gameObject.CompareTag("Player"))
         {
-            deathMenu.SetActive(true);
-            Time.timeScale = 0;
+            deathMenu.SetActive(true); // Shows the death screen
+            Time.timeScale = 0; // Stops the game time
         }
 
         Destroy(gameObject); // Destroys the object
@@ -84,5 +79,11 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = maxHealth; // Sets current health back to back
         playerHealthDelegate(currentHealth); // Displays the current health
+    }
+
+    // Kills the player
+    public void KillPlayer()
+    {
+        ApplyDamage(maxHealth); // Instantly kills the player
     }
 }
