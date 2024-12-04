@@ -29,7 +29,19 @@ public class MoveForward : MonoBehaviour
     // Moves the object backward
     public void MoveBackward()
     {
-        Vector3 reverseDirection = new Vector3(0, 0, -30);
+        Vector3 reverseDirection; // The direction the plane will be pushed in
+
+        // Executes if the plane is in the lower region of the level
+        if (gameObject.transform.position.z < 0)
+        {
+            reverseDirection = new Vector3(0, 0, 30); // Pushes it upward
+        }
+        // Executes if the plane is in the upper region of the level
+        else
+        {
+            reverseDirection = new Vector3(0, 0, -30); // Pushes it downward
+        }
+        
         transform.position = Vector3.Lerp(transform.position, reverseDirection, Time.deltaTime * 2f); // Makes object travel backward
     }
 }

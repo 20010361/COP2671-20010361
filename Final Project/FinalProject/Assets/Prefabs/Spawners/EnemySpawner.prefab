@@ -48,6 +48,10 @@ MonoBehaviour:
   - {fileID: 4032861485192895681, guid: 308b80f935403a340a4c07ca16558fc5, type: 3}
   stage2EnemiesArray:
   - {fileID: 4032861485192895681, guid: 07cf7f996fb3ee0489d9df50cd5af67c, type: 3}
+  - {fileID: 4032861485192895681, guid: 7042e7e50e2a1cc40939119fe3c3917e, type: 3}
   stage3EnemiesArray:
   - {fileID: 4032861485192895681, guid: 4cc937f7a844a4d418ac6b63a4196b4d, type: 3}
-  roundManager: {fileID: 0}
+  - {fileID: 4032861485192895681, guid: 50adf6ba90d1a6443a366f583d8d4e4f, type: 3}
+  stage4EnemiesArray:
+  - {fileID: 4032861485192895681, guid: 81ec3daa70b2a294fbe73e161cf1fef7, type: 3}
+  - {fileID: 4032861485192895681, guid: 2a6332b4b5c86564fafa0a8607f2011f, type: 3}

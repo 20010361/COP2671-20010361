@@ -8,7 +8,7 @@ public class TimerManager : MonoBehaviour
     private GameObject player; // Reference to the player
     private float timeLeft; // The timer remaining in the round
 
-    public float maxTime = 20; // The time that the player will have each round
+    public float maxTime = 40; // The time that the player will have each round
     public bool timerOn = false; // Whether the timer is counting down
     public TextMeshProUGUI timerText; // Text to display the timer
 

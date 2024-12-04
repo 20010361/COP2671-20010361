@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052e5d717f0297e48bf1d44e2f3b4d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 20
 --- !u!114 &-4087817134798094005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b6fee4fd092474e9724688e904dfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileDamage: 50
+  missileDamage: 20
 --- !u!65 &-7379724864290108967
 BoxCollider:
   m_ObjectHideFlags: 0

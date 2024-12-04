@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         FlyPlane();
         UseWeapons();
         PauseGame();
+        MaintainHeight();
     }
 
     // Moves the player to where the mouse cursor is on screen
@@ -87,6 +88,16 @@ public class PlayerController : MonoBehaviour
         {
             pauseMenu.SetActive(false); // Closes the pause menu
             Time.timeScale = 1; // Resumes game time
+        }
+    }
+
+    // Makes sure the player's plane stays on the intended height of the game
+    void MaintainHeight()
+    {
+        // Executes when the player's elevation has changed
+        if(gameObject.transform.position.y != 1f)
+        {
+            gameObject.transform.position = new Vector3(transform.position.x, 1, transform.position.z); // Sets it back to one
         }
     }
 }

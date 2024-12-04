@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddScore : PowerUpEffect
 {
     private ScoreManager scoreManager; // Stores the score manager in the scene
-    private int scoreToAdd = 200; // The points added to the score
+    private int scoreToAdd = 2000; // The points added to the score
 
 
     // Start is called before the first frame update

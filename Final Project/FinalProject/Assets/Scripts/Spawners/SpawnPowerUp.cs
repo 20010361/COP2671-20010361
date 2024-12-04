@@ -16,7 +16,7 @@ public class SpawnPowerUp : MonoBehaviour
     public void SpawnInPowerUp()
     {
         // Determines whether a powerup spawns
-        int spawnDecision = Random.Range(0, 4); // The odds of a powerup spawning
+        int spawnDecision = Random.Range(0, 3); // The odds of a powerup spawning
         if (spawnDecision == 1)
         {
             int powerUpToSpawn = Random.Range(0, powerUps.Length);

@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] stage1EnemiesArray; // The array of enemies to be spawned in the early rounds
     public GameObject[] stage2EnemiesArray; // The array of enemies to be spawned in the mid rounds
     public GameObject[] stage3EnemiesArray; // The array of enemies to be spawned in the later rounds
-    
+    public GameObject[] stage4EnemiesArray; // The array of enemies to be spawned in the later rounds
+
 
 
     // When the object is enabled
@@ -36,11 +37,17 @@ public class EnemySpawner : MonoBehaviour
         {
             enemiesArray = stage2EnemiesArray;
         }
-        else if(roundManager.currentRound > 10)
+        else if(roundManager.currentRound <= 15 && roundManager.currentRound > 10)
         {
             enemiesArray = stage3EnemiesArray;
         }
-        Instantiate(enemiesArray[0], this.gameObject.transform.position, this.gameObject.transform.rotation); // Spawned an enemy
+        else if (roundManager.currentRound > 15)
+        {
+            enemiesArray = stage4EnemiesArray;
+        }
+
+        int chosenPlane = Random.Range(0, enemiesArray.Length); // Randomizes which plane in list is spawned in
+        Instantiate(enemiesArray[chosenPlane], this.gameObject.transform.position, this.gameObject.transform.rotation); // Spawned an enemy
     }
 
     // When the object is disabled
