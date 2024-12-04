@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask layersToHit; // Layer object that raycast is meant to collide with
     public GameObject pauseMenu; // Object for pausing and unpausing the game
-    public ShowStats showStats;
+    public ShowStats showStats; // Object for showing level stats
 
 
     private void OnEnable()
@@ -30,10 +30,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FlyPlane();
-        UseWeapons();
-        PauseGame();
-        MaintainHeight();
+        // When game is paused player input is disabled
+        if(Time.timeScale > 0)
+        {
+            FlyPlane();
+            UseWeapons();            
+            MaintainHeight();
+        }
+        PauseGame(); // Put outside if statement so the player can still use tab to unpause the game
     }
 
     // Moves the player to where the mouse cursor is on screen
